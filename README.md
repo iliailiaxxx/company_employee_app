@@ -8,8 +8,8 @@ Follow these steps to get the application running locally:
 
 Clone the repository to your local machine:
 
-`bash
 git clone https://github.com/yourusername/your-repository-name.git
+
 cd your-repository-name
 
 ### 2.Set up environment variables
@@ -49,7 +49,14 @@ This will create an admin user with the following credentials:
 Email: admin@admin.com
 Password: password
 
-### 8. Start the local development server
+### 8.Install dependencies
+
+npm install
+
+### 9. Start the local development server
 
 php artisan serve
++
+npm run dev
+
 The application should now be accessible at http://127.0.0.1:8000.

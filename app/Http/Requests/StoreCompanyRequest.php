@@ -23,9 +23,11 @@ class StoreCompanyRequest extends FormRequest
      */
     public function rules()
     {
+        $companyId = $this->route('company')->id;
+
         return [
             'name' => 'required|string',
-            'email' => 'nullable|email|unique:companies,email',
+            'email' => 'required|email|unique:companies,email,' . $companyId,
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:min_width=100,min_height=100',
             'website' => 'nullable|url',
         ];
