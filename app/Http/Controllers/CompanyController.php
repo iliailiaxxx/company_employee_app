@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Http\Requests\StoreCompanyRequest;
-use Illuminate\Http\Request;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
@@ -30,7 +31,9 @@ class CompanyController extends Controller
 
         Company::create($data);
 
-        //TODO send email
+        if (isset($data['email'])) {
+            Mail::to($data['email'])->queue(new TestMail($data));
+        }
 
         return redirect()->route('companies.index')->with('success', 'Company created successfully.');
     }

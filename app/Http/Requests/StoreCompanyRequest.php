@@ -23,11 +23,12 @@ class StoreCompanyRequest extends FormRequest
      */
     public function rules()
     {
-        $companyId = $this->route('company')->id;
+        $company = $this->route('company');
+        $companyId = $company ? $company->id : null;
 
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:companies,email,' . $companyId,
+            'email' => 'required|email|unique:companies,email' . ($companyId ? ',' . $companyId : ''),
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:min_width=100,min_height=100',
             'website' => 'nullable|url',
         ];
