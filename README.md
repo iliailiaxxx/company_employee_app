@@ -26,6 +26,9 @@ DB_DATABASE=your_database_name
 DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
 
+ALSO add 
+QUEUE_CONNECTION=database
+
 Make sure you create a new database with the name specified in DB_DATABASE (you can create the database manually using a tool like phpMyAdmin or via the MySQL command line).
 
 ### 4. Install dependencies
