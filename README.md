@@ -44,6 +44,7 @@ php artisan migrate
 ### 6. Create a symbolic link for storage
 run:
 php artisan storage:link
+php artisan key:generate
 
 ### 7. Seed the database with the admin user
 run:
